@@ -1843,7 +1843,7 @@ function Tab:AddServerInfo(Configs)
     Position = UDim2.new(0.5, 0, 0, -31),  -- Y negativo para subir
     AnchorPoint = Vector2.new(0.5, 0),     -- meio horizontal, topo vertical
     BackgroundTransparency = 1,
-    Image = "rbxassetid://106706117462124",
+    Image = "rbxassetid://",
     ScaleType = Enum.ScaleType.Fit,
     ZIndex = 1
 })

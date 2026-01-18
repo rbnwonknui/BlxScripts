@@ -1830,12 +1830,7 @@ function Tab:AddServerInfo(Configs)
 	})
 
 	-- ==================== LOGO ====================
-	local LogoContainer = Create("Frame", ServerInfoHolder, {
-		Size = UDim2.new(1, 0, 0, 100),
-		BackgroundTransparency = 1,
-		LayoutOrder = 0,
-		ClipsDescendants = false
-	})
+
 
 	-- Imagem de fundo atrás do logo
 	local LogoBackground = Create("ImageLabel", LogoContainer, {
@@ -1843,7 +1838,7 @@ function Tab:AddServerInfo(Configs)
     Position = UDim2.new(0.5, 0, 0, -31),  -- Y negativo para subir
     AnchorPoint = Vector2.new(0.5, 0),     -- meio horizontal, topo vertical
     BackgroundTransparency = 1,
-    Image = "rbxassetid://",
+    Image = "rbxassetid://106706117462124",
     ScaleType = Enum.ScaleType.Fit,
     ZIndex = 1
 })

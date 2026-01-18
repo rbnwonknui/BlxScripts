@@ -1989,7 +1989,7 @@ function Tab:AddServerInfo(Configs)
 		Font = Enum.Font.GothamBold,
 		TextSize = 11,
 		TextColor3 = Color3.fromRGB(255, 75, 129),
-		Text = "Kontra",
+		Text = "rbnwonknui",
 		TextXAlignment = "Left",
 		AutoButtonColor = false
 	})
@@ -2025,7 +2025,7 @@ function Tab:AddServerInfo(Configs)
 
 	-- Copiar link ao clicar
 	CreatorButton.MouseButton1Click:Connect(function()
-		setclipboard("https://scriptblox.com/u/Kontra")
+		setclipboard("https://scriptblox.com/u/rbnwonknui")
 		CopyFeedback.Visible = true
 		
 		-- Animação de clique

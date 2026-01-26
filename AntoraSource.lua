@@ -1854,10 +1854,36 @@ function Tab:AddServerInfo(Configs)
 		Size = UDim2.fromOffset(560, 140),
 		Position = UDim2.new(0.5, -280, 0.5, -70),
 		BackgroundTransparency = 1,
-		Image = "rbxassetid://",
+		Image = "rbxassetid://120841455936754",
 		ScaleType = Enum.ScaleType.Fit,
 		ZIndex = 2
 	})
+
+	-- ==================== SCRIPT INFO ====================
+	local ScriptInfoHeaderContainer = Create("Frame", ServerInfoHolder, {
+		Size = UDim2.new(1, 0, 0, 20),
+		BackgroundTransparency = 1,
+		LayoutOrder = 1
+	})
+
+	local ScriptInfoHeaderAccent = Create("Frame", ScriptInfoHeaderContainer, {
+		Size = UDim2.new(0, 3, 1, 0),
+		Position = UDim2.new(0, 0, 0, 0),
+		BackgroundColor3 = Color3.fromRGB(255, 75, 129),
+		BorderSizePixel = 0
+	})
+	Make("Corner", ScriptInfoHeaderAccent, UDim.new(1, 0))
+
+	local ScriptInfoHeader = InsertTheme(Create("TextLabel", ScriptInfoHeaderContainer, {
+		Size = UDim2.new(1, -10, 1, 0),
+		Position = UDim2.new(0, 10, 0, 0),
+		Font = Enum.Font.GothamBold,
+		TextColor3 = Theme["Color Text"],
+		TextXAlignment = "Left",
+		BackgroundTransparency = 1,
+		TextSize = 13,
+		Text = "SCRIPT INFO"
+	}), "Text")
 
 	-- ==================== INFO BANNER ====================
 	local InfoBanner = Create("Frame", ServerInfoHolder, {

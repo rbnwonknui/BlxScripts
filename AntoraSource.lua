@@ -1929,7 +1929,7 @@ function Tab:AddServerInfo(Configs)
 		TextSize = 12,
 		TextColor3 = Color3.fromRGB(200, 200, 200),
 		TextXAlignment = "Center",
-		Text = "This is a free script. If you paid for it, you've probably been ripped off.",
+		Text = "This is a free script. If you paid for it, you've probably been scammed.",
 		TextWrapped = true
 	}), "Text")
 

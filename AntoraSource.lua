@@ -1802,9 +1802,6 @@ function Tab:AddServerInfo(Configs)
 	local Stats = game:GetService("Stats")
 	local TweenService = game:GetService("TweenService")
 	
-	-- Obter versão do script (se fornecida)
-	local ScriptVersion = Configs.ScriptVersion or "Nil"
-	
 	-- Container principal (fundo cinza claro) - ALTURA AUMENTADA
 	local ServerInfoHolder = Create("Frame", Container, {
 		Size = UDim2.new(1, 0, 0, 490),
@@ -1887,7 +1884,7 @@ function Tab:AddServerInfo(Configs)
 
 	-- ==================== INFO BANNER ====================
 	local InfoBanner = Create("Frame", ServerInfoHolder, {
-		Size = UDim2.new(1, 0, 0, 60),
+		Size = UDim2.new(1, 0, 0, 30),
 		BackgroundColor3 = Color3.fromRGB(20, 20, 20),
 		BorderSizePixel = 0,
 		LayoutOrder = 2
@@ -1932,119 +1929,6 @@ function Tab:AddServerInfo(Configs)
 		Text = "This is a free script. If you paid for it, you've probably been scammed.",
 		TextWrapped = true
 	}), "Text")
-
-	-- Container da versão do script (LADO ESQUERDO)
-	local VersionContainer = Create("Frame", InfoBanner, {
-		Size = UDim2.new(1, 0, 0, 14),
-		Position = UDim2.new(0, 0, 0, 16),
-		BackgroundTransparency = 1
-	})
-
-	local VersionLabel = InsertTheme(Create("TextLabel", VersionContainer, {
-		Size = UDim2.new(0, 90, 1, 0),
-		Position = UDim2.new(0, 0, 0, 0),
-		BackgroundTransparency = 1,
-		Font = Enum.Font.GothamBold,
-		TextSize = 11,
-		TextColor3 = Theme["Color Text"],
-		TextXAlignment = "Left",
-		Text = "Funcs&Stuff:"
-	}), "Text")
-
-	local VersionValue = InsertTheme(Create("TextLabel", VersionContainer, {
-		Size = UDim2.new(0, 80, 1, 0),
-		Position = UDim2.new(0, 64, 0, 0),
-		BackgroundTransparency = 1,
-		Font = Enum.Font.GothamBold,
-		TextSize = 11,
-		TextColor3 = Color3.fromRGB(255, 75, 129),
-		TextXAlignment = "Left",
-		Text = ScriptVersion
-	}), "Text")
-
-	-- Container do Creator (LADO ESQUERDO)
-	local CreatorContainer = Create("Frame", InfoBanner, {
-		Size = UDim2.new(1, 0, 0, 14),
-		Position = UDim2.new(0, 0, 0, 34),
-		BackgroundTransparency = 1
-	})
-
-	local CreatorLabel = InsertTheme(Create("TextLabel", CreatorContainer, {
-		Size = UDim2.new(0, 55, 1, 0),
-		Position = UDim2.new(0, 0, 0, 0),
-		BackgroundTransparency = 1,
-		Font = Enum.Font.GothamBold,
-		TextSize = 11,
-		TextColor3 = Theme["Color Text"],
-		TextXAlignment = "Left",
-		Text = "Creator:"
-	}), "Text")
-
-	-- Botão do nome do criador
-	local CreatorButton = Create("TextButton", CreatorContainer, {
-		Size = UDim2.new(0, 60, 1, 0),
-        Position = UDim2.new(0, 40, 0, 0),
-		BackgroundTransparency = 1,
-		BorderSizePixel = 0,
-		Font = Enum.Font.GothamBold,
-		TextSize = 11,
-		TextColor3 = Color3.fromRGB(255, 75, 129),
-		Text = "rbnwonknui",
-		TextXAlignment = "Left",
-		AutoButtonColor = false
-	})
-
-	-- Feedback de cópia
-	local CopyFeedback = InsertTheme(Create("TextLabel", CreatorContainer, {
-		Size = UDim2.new(0, 100, 1, 0),
-		Position = UDim2.new(0, 125, 0, 0),
-		BackgroundTransparency = 1,
-		Font = Enum.Font.GothamBold,
-		TextSize = 9,
-		TextColor3 = Color3.fromRGB(100, 255, 100),
-		TextXAlignment = "Left",
-		Text = "✓ Link copied!",
-		Visible = false
-	}), "Text")
-
-	-- Animação de hover no botão
-	CreatorButton.MouseEnter:Connect(function()
-		local tween = TweenService:Create(CreatorButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
-			TextColor3 = Color3.fromRGB(255, 95, 149)
-		})
-		tween:Play()
-	end)
-
-	CreatorButton.MouseLeave:Connect(function()
-		CopyFeedback.Visible = false
-		local tween = TweenService:Create(CreatorButton, TweenInfo.new(0.2, Enum.EasingStyle.Quad), {
-			TextColor3 = Color3.fromRGB(255, 75, 129)
-		})
-		tween:Play()
-	end)
-
-	-- Copiar link ao clicar
-	CreatorButton.MouseButton1Click:Connect(function()
-		setclipboard("https://scriptblox.com/u/rbnwonknui")
-		CopyFeedback.Visible = true
-		
-		-- Animação de clique
-		local clickTween = TweenService:Create(CreatorButton, TweenInfo.new(0.1, Enum.EasingStyle.Quad), {
-			TextColor3 = Color3.fromRGB(235, 55, 109)
-		})
-		clickTween:Play()
-		clickTween.Completed:Connect(function()
-			local backTween = TweenService:Create(CreatorButton, TweenInfo.new(0.1, Enum.EasingStyle.Quad), {
-				TextColor3 = Color3.fromRGB(255, 95, 149)
-			})
-			backTween:Play()
-		end)
-		
-		-- Esconder feedback após 2 segundos
-		task.delay(2, function()
-			CopyFeedback.Visible = false
-		end)
-	end)
 
 	-- ==================== PLAYER INFO PANEL ====================
 	local PlayerHeaderContainer = Create("Frame", ServerInfoHolder, {
